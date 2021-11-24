@@ -11,6 +11,7 @@ aiohttp = "*"
 environs = "*"
 pandas = "*"
 pipfile = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 

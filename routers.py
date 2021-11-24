@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 import pandas as pd
 import requests
+
 from config import USERNAME,TOKEN
 
 
@@ -19,7 +20,7 @@ def get_repo(url, limit):
     page = 1
     while True:
         try:
-            r = requests.get(url, auth=(USERNAME, TOKEN), params={"page":page})
+            r = requests.get(url, auth=(USERNAME, TOKEN), params={"page":page, "per_page":100})
             r.raise_for_status()
             assert len(r.json()) != 0
         except AssertionError:
